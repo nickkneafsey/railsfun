@@ -54,6 +54,6 @@ class SubjectsController < ApplicationController
   private
 
   def subject_params
-    params.require(:subject).permit(:name, :position, :visible)
+    params.require(:page).permit(:subject_id, :name, :permalink, :position, :visible)
   end
 end
