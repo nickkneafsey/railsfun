@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
 
-  layout false
+  layout "admin"
 
   def index
     @subjects = Subject.sorted
@@ -54,6 +54,6 @@ class SubjectsController < ApplicationController
   private
 
   def subject_params
-    params.require(:page).permit(:subject_id, :name, :permalink, :position, :visible)
+    params.require(:subject).permit(:subject_id, :name, :permalink, :position, :visible)
   end
 end
