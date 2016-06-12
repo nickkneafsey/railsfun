@@ -13,6 +13,7 @@ class SubjectsController < ApplicationController
 
   def new
     @subject = Subject.new({ :name => "Default" })
+    @subject_count = Subject.count + 1
   end
 
   def create
@@ -21,13 +22,15 @@ class SubjectsController < ApplicationController
     if @subject.save
       flash[:notice] = "Subject created successfully"
       redirect_to(:action => 'index')
-    else 
+    else
+      @subject_count = Subject.count + 1
       render('new')
     end
   end
 
   def edit
     @subject = Subject.find(params[:id])
+    @subject_count = Subject.count
   end
 
   def update
@@ -37,6 +40,7 @@ class SubjectsController < ApplicationController
       flash[:notice] = "Subject updated successfully"
       redirect_to(:action => 'show', :id => @subject.id)
     else 
+      @subject_count = Subject.count
       render('edit')
     end
   end
