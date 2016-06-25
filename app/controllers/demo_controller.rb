@@ -30,4 +30,19 @@ class DemoController < ApplicationController
 
   end
 
+  def make_error
+    # render(:text => "test"
+    # render(:text => @something.upcase)
+    # render(:text => "1" + 1)
+  end
+
+  def logging
+    logger.debug("This is debug")
+    logger.info("This is info")
+    logger.warn("This is warn")
+    logger.error("This is error")
+    logger.fatal("This is fatal")
+    render(:text => 'Logged!')
+  end
+
 end
